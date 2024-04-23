@@ -6,7 +6,13 @@ services:
     environment:
       - POSTGRES_PASSWORD=ola
     volumes:
-      - pgdata:/var/lib/postgresql/data
-volumes:
-  pgdata:        
-     
+      - /var/lib/postgresql/data
+  mongodb:
+    image: mongo    
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=ola
+    ports:
+      - 27017:27017
+    volumes:
+      - /var/lib/mongodb/data  
